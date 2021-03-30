@@ -10,16 +10,13 @@ import java.util.List;
 
 @Entity
 public class Employer extends AbstractEntity {
-
-    // Unsure of what validation is appropriate, went with validation for a String
+    
     @NotBlank(message = "Employer location is required.")
     @Size(min = 2, max = 150, message = "Location must be between 2 and 150 characters.")
     private String location;
 
-    @OneToMany(mappedBy = "employer")
-//    @JoinColumn(name="employer_Id")
-//    @OneToMany
-//    @JoinColumn
+    @OneToMany
+    @JoinColumn(name="employer_id")
     private List<Job> jobs = new ArrayList<>();
 
     public Employer() {}

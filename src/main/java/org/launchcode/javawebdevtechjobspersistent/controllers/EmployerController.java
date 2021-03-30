@@ -18,7 +18,7 @@ public class EmployerController {
     @Autowired
     private EmployerRepository employerRepository;
 
-    @GetMapping // "responds at /employers" - implies the mapping request responds at employers?
+    @GetMapping
     public String index(Model model) {
         model.addAttribute("title", "All Employers"); // Is this line necessary? Or fit our html?
         model.addAttribute("employers", employerRepository.findAll());

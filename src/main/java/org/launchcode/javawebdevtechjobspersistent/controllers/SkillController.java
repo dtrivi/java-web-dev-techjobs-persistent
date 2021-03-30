@@ -14,20 +14,19 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("skills") // Assuming this is necessary, but not part of listed steps
+@RequestMapping("skills")
 public class SkillController {
 
     @Autowired
     private SkillRepository skillRepository;
 
-    @GetMapping // "responds at /skills" - implies the mapping request responds at employers?
+    @GetMapping
     public String index(Model model) {
-        model.addAttribute("title", "All Skills"); // Is this line necessary? Or fit our html?
+        model.addAttribute("title", "All Skills");
         model.addAttribute("skills", skillRepository.findAll());
         return "skills/index"; // redirect?
     }
 
-    // Unsure if this is necessary. Pulled over from employers just in case
     @GetMapping("add")
     public String displayAddSkillsForm(Model model) {
         model.addAttribute(new Skill());
@@ -45,7 +44,6 @@ public class SkillController {
         return "redirect:";
     }
 
-    // Do I need to pass in a job? unsure about skills.job in skills/view.html
     @GetMapping("view/{skillId}")
     public String displayViewEmployer(Model model, @PathVariable int skillId) {
 

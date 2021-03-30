@@ -6,15 +6,9 @@ import java.util.List;
 
 @Entity
 public class Job extends AbstractEntity{
-//    Removed based on step part3.update-job-model.1
-//    @Id
-//    @GeneratedValue
-//    private int id;
-
-//    private String name;
 
     @ManyToOne
-    @JoinColumn(name="employer_Id")
+//    @JoinColumn(name="employer_Id")
     private Employer employer;
 
     @ManyToMany
@@ -28,16 +22,6 @@ public class Job extends AbstractEntity{
         this.employer = anEmployer;
         this.skills = someSkills;
     }
-
-    // Getters and setters.
-
-//    public String getName() {
-//        return name;
-//    }
-//
-//    public void setName(String name) {
-//        this.name = name;
-//    }
 
     public Employer getEmployer() {
         return employer;
